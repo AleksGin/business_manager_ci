@@ -18,7 +18,7 @@ jobs:
           python-version: 3.12
 
       - name: download poetry
-        run: pip instal poetry
+        run: pip install poetry
 
       - name: download dependencies
         run: poetry install
