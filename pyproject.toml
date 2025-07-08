@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "business_manager_ci"
+version = "0.1.0"
+description = ""
+authors = ["AleksGin <alexanderginin@icloud.com>"]
+package-mode = false
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = {extras = ["email"], version = "^2.11.7"}
+pydantic-settings = "^2.8.1"
+asyncpg = "^0.30.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.40"}
+pyjwt = {extras = ["crypto"], version = "^2.10.1"}
+fastapi = "^0.115.12"
+alembic = "^1.15.2"
+bcrypt = "^4.3.0"
+uvicorn = "^0.34.3"
+sqladmin = "^0.20.1"
+pytest = "^8.4.1"
+freezegun = "^1.5.2"
+httpx = "^0.28.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+pytest-cov = "^6.2.1"
+pytest-asyncio = "^1.0.0"
+
+[tool.pytest.ini_options]
+testpaths = ["src/tests"]
+pythonpath = ["src"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "-v"
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "api: API tests",
+    "slow: Slow running tests"
+]
+asyncio_mode = "auto"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
