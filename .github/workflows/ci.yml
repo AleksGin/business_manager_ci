@@ -8,22 +8,68 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:17.2-alpine
+        env:
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_USER: test_user
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+          
     steps:
-      - name: load code
+      - name: checkout code
         uses: actions/checkout@v4
 
-      - name: download python 3.12
+      - name: set up python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
 
-      - name: download poetry
+      - name: install poetry
         run: pip install poetry
 
-      - name: download dependencies
+      - name: install dependencies
         run: poetry install
 
-      - name: start Tests
-        run: |
-          cd src
-          poetry run pytest -v
+      - name: Run Tests
+        working-directory: ./src
+        run: poetry run pytest -v
+        env:
+
+          DB_CONFIG__DB_PASSWORD: ${{ secrets.DB_CONFIG__DB_PASSWORD }}
+          TEST_DB_CONFIG__DB_PASSWORD: ${{ secrets.TEST_DB_CONFIG__DB_PASSWORD }}
+          AUTH__SECRET_KEY: ${{ secrets.AUTH__SECRET_KEY }}
+
+          DB_CONFIG__DB_NAME: test_db
+          DB_CONFIG__DB_USER: test_user
+          DB_CONFIG__DB_PORT: 5432
+
+          TEST_DB_CONFIG__DB_NAME: test_db
+          TEST_DB_CONFIG__DB_USER: test_user
+          TEST_DB_CONFIG__DB_PORT: 5432
+
+          AUTH__ALGORITHM=HS256: HS256
+          AUTH__ACCESS_TOKEN_EXPIRE_MINUTES: 30
+          AUTH__REFRESH_TOKEN_EXPIRE_DAYS: 7
+
+          APP_CONFIG__HOST: 0.0.0.0        
+          APP_CONFIG__PORT: 8000
+          APP_CONFIG__RELOAD_MODE: false
+
+          BCRYPT_SETTINGS__DEFAULT_ROUNDS_VALUE: 4
+
+
+
+
+
+
+
+
+          
