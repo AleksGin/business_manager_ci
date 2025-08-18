@@ -1,5 +1,5 @@
 __all__ = (
-    "db_helper",
+    "DbHelper",
     "Base",
     "meeting_participants",
     "UserToken",
@@ -19,7 +19,7 @@ from users.models import User
 
 from .associations import meeting_participants
 from .base import Base
-from .db_helper import db_helper
+from .db_helper import DbHelper
 from .user_token import (
     TokenType,
     UserToken,
