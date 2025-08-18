@@ -5,7 +5,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects.postgresql import UUID
 
-from .base import Base
+from app.src.core.models import Base
 
 meeting_participants = Table(
     "meeting_participants",

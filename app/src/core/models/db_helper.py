@@ -1,6 +1,6 @@
 from typing import AsyncGenerator
 
-from core.config import settings
+from app.src.core.config import settings
 from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     create_async_engine,
@@ -17,7 +17,7 @@ class Db_Helper:
         max_overflow: int = 10,
         pool_size: int = 5,
     ) -> None:
-        self.async_enginge = create_async_engine(
+        self.async_engine = create_async_engine(
             url=url,
             echo=echo,
             echo_pool=echo_pool,
@@ -25,21 +25,21 @@ class Db_Helper:
             pool_size=pool_size,
         )
         self.session_factory = async_sessionmaker(
-            bind=self.async_enginge,
+            bind=self.async_engine,
             autoflush=False,
             autocommit=False,
             expire_on_commit=False,
         )
 
     async def engine_dispose(self) -> None:
-        await self.async_enginge.dispose()
+        await self.async_engine.dispose()
 
     async def session_getter(self) -> AsyncGenerator[AsyncSession, None]:
         async with self.session_factory() as session:
             yield session
 
 
-db_helper = Db_Helper(
+DbHelper = Db_Helper(
     url=settings.db_config.url,
     echo=settings.db_config.echo,
     echo_pool=settings.db_config.echo_pool,

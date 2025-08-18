@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from core.config import settings
-from core.models import db_helper
+from db import DbHelper
 from evaluations.routers import evaluations_router
 from tasks.routers import tasks_router
 from teams.routers import (
@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
     yield
     # shutdown
     print("dispose engine")
-    await db_helper.engine_dispose()
+    await DbHelper.engine_dispose()
 
 
 def create_app() -> FastAPI:
