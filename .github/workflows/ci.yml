@@ -25,8 +25,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install black flake8
-      - run: black --check src/
-      - run: flake8 src/
+      - run: black --check app/src/
+      - run: flake8 app/src/
 
   develop-check:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
       - run: pip install poetry
       - run: poetry install
       - name: Run unit tests
-        working-directory: ./src
+        working-directory: ./app/src
         run: poetry run pytest tests/unit/ -v
     
   full-check:
