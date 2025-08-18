@@ -80,7 +80,7 @@ jobs:
         run: poetry install
 
       - name: Run Tests
-        working-directory: ./src
+        working-directory: ./app/src
         run: poetry run pytest -v
         env:
 
