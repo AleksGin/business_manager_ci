@@ -191,21 +191,32 @@ AUTH__SECRET_KEY
 ```
 business_manager_ci/
 ├── .github/workflows/       # CI/CD конфигурации
-├── src/                    # Исходный код
-│   ├── core/              # Основные настройки и конфигурация
-│   ├── users/             # Модуль пользователей
-│   ├── teams/             # Модуль команд
-│   ├── tasks/             # Модуль задач
-│   ├── meetings/          # Модуль встреч
-│   ├── calendars/         # Модуль календаря
-│   ├── evaluations/       # Модуль оценок
-│   ├── tests/             # Тесты
-│   ├── static/            # Статические файлы
-│   ├── main.py            # Точка входа приложения
-│   └── .env.template      # Шаблон переменных окружения
-├── compose.yaml           # Docker Compose конфигурация
-├── pyproject.toml         # Poetry конфигурация и зависимости
-└── README.md             # Документация проекта
+├── src/                     # Исходный код
+│   ├── core/               
+│   ├── users/              
+│   ├── teams/              
+│   ├── tasks/              
+│   ├── meetings/           
+│   ├── calendars/          
+│   ├── evaluations/        
+│   ├── tests/              
+│   ├── static/             
+│   ├── main.py             
+│   ├── index.html          # HTML-шаблон (сейчас лежит в src)
+│   ├── .env                # Локальные переменные окружения
+│   └── .env.template       # Шаблон переменных окружения
+├── db/                     
+├── migrations/             
+│   ├── versions/           
+│   ├── alembic.ini
+│   ├── env.py
+│   ├── script.py.mako
+│   └── README
+├── compose.yaml            
+├── pyproject.toml          
+├── poetry.lock             
+├── .gitignore              
+└── README.md
 ```
 
 ## 📚 API Endpoints
