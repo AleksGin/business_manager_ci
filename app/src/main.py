@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from core.config import settings
-from db import DbHelper
+from src.core.models import DbHelper
 from evaluations.routers import evaluations_router
 from tasks.routers import tasks_router
 from teams.routers import (

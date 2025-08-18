@@ -28,8 +28,8 @@ pytest-cov = "^6.2.1"
 pytest-asyncio = "^1.0.0"
 
 [tool.pytest.ini_options]
-testpaths = ["src/tests"]
-pythonpath = ["src"]
+testpaths = ["app/src/tests"]
+pythonpath = ["app"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
