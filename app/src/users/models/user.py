@@ -17,8 +17,8 @@ from sqlalchemy.orm import (
     relationship,
 )
 
-from core.models.associations import meeting_participants
-from core.models.base import Base
+from src.core.models.associations import meeting_participants
+from src.core.models.base import Base
 
 
 class RoleEnum(PyEnum.Enum):
@@ -37,10 +37,13 @@ if TYPE_CHECKING:
     from meetings.models import Meeting
     from tasks.models import Task
     from teams.models import Team
-    from core.models import UserToken
+    from core.models.all_models import UserToken
 
 
 class User(Base):
+    __table_args__ = {"extend_existing": True}
+    
+    
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str] = mapped_column(nullable=True)
     is_active: Mapped[bool] = mapped_column(default=True)

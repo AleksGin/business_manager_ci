@@ -22,7 +22,7 @@ from core.interfaces import (
     TokenRepository,
     UUIDGenerator,
 )
-from core.models.db_helper import db_helper
+from core.models.db_helper import DbHelper
 from core.providers.jwt_provider import jwt_provider
 from core.providers.token_provider import TokenRepositoryProvider
 from core.providers.uuid_generator_provider import UUIDGeneratorProvider
@@ -59,7 +59,7 @@ security = HTTPBearer()
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
     """Получить сессию из БД"""
-    async for session in db_helper.session_getter():
+    async for session in DbHelper.session_getter():
         yield session
 
 

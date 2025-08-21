@@ -13,6 +13,8 @@ from users.schemas import UserInTeam
 
 
 class TaskBase(BaseModel):
+    __table_args__ = {"extend_existing": True}
+    
     title: str = Field(
         min_length=3,
         max_length=80,

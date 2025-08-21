@@ -8,7 +8,7 @@ from typing import (
 )
 from uuid import UUID
 
-from core.models.user_token import (
+from src.core.models.user_token import (
     TokenType,
     UserToken,
 )

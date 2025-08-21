@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -20,6 +21,8 @@ from users.routers import (
 )
 from meetings.routers import meetings_router
 from calendars.routers import calendar_router
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 @asynccontextmanager
@@ -43,7 +46,7 @@ def create_app() -> FastAPI:
 
     app.mount(
         "/static",
-        StaticFiles(directory="static"),
+        StaticFiles(directory=BASE_DIR / "src" / "static"),
         name="static",
     )
 
@@ -114,7 +117,7 @@ def create_app() -> FastAPI:
 
     @app.get("/", response_class=FileResponse)
     async def read_index() -> FileResponse:
-        return FileResponse("index.html")
+        return FileResponse(BASE_DIR / "src" / "index.html")
 
     @app.get("/api")
     async def root():

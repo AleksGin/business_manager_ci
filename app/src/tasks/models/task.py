@@ -17,7 +17,7 @@ from sqlalchemy.orm import (
     relationship,
 )
 
-from core.models.base import Base
+from src.core.models.base import Base
 
 if TYPE_CHECKING:
     from evaluations.models import Evaluation
@@ -32,6 +32,8 @@ class StatusEnum(PyEnum.Enum):
 
 
 class Task(Base):
+    __table_args__ = {"extend_existing": True}
+    
     title: Mapped[str] = mapped_column(String(80), nullable=False)
     description: Mapped[str] = mapped_column(nullable=True)
     deadline: Mapped[datetime] = mapped_column(nullable=False)

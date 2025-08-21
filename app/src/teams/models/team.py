@@ -11,7 +11,7 @@ from sqlalchemy.orm import (
     relationship,
 )
 
-from core.models.base import Base
+from src.core.models.base import Base
 
 if TYPE_CHECKING:
     from meetings.models import Meeting
@@ -20,6 +20,8 @@ if TYPE_CHECKING:
 
 
 class Team(Base):
+    __table_args__ = {"extend_existing": True}
+    
     name: Mapped[str] = mapped_column(
         nullable=False,
         unique=True,

@@ -2,7 +2,7 @@ import re
 from datetime import date
 from uuid import UUID
 
-from users.interfaces import (
+from src.users.interfaces import (
     UserRepository,
     UserValidator,
 )

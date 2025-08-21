@@ -21,6 +21,7 @@ sqladmin = "^0.20.1"
 pytest = "^8.4.1"
 freezegun = "^1.5.2"
 httpx = "^0.28.1"
+black = "^25.1.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"

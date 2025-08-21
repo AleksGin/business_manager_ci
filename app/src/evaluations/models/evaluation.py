@@ -14,8 +14,7 @@ from sqlalchemy.orm import (
     mapped_column,
     relationship,
 )
-
-from core.models.base import Base
+from src.core.models.base import Base
 
 if TYPE_CHECKING:
     from tasks.models import Task
@@ -31,6 +30,8 @@ class ScoresEnum(PyEnum.Enum):
 
 
 class Evaluation(Base):
+    __table_args__ = {"extend_existing": True}
+    
     task_uuid: Mapped[UUID] = mapped_column(
         ForeignKey("tasks.uuid", ondelete="CASCADE"),
         nullable=False,

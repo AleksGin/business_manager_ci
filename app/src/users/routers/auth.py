@@ -21,7 +21,7 @@ from core.dependencies import (
     UUIDGeneratorDep,
     PermissionValidatorDep,
 )
-from core.models import TokenType
+from core.models.all_models import TokenType
 from core.providers import (
     jwt_provider,
 )

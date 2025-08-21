@@ -620,19 +620,3 @@ async def get_user_stats(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=str(e),
         )
-
-
-# TODO УДАЛИТЬ ЭТОТ ЭНДПОИНТ
-@router.post("/make-first-admin")
-async def make_admin(
-    current_user: CurrentUserDep,
-    session: SessionDep,
-    user_repo: UserRepoDep,
-):
-    """Сделать первого админа"""
-
-    current_user.role = RoleEnum.ADMIN
-    await user_repo.update_user(current_user)
-    await session.commit()
-
-    return {"message": f"Вы теперь администратор {current_user.email}"}

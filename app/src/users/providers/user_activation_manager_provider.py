@@ -4,13 +4,13 @@ from datetime import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     JWTProviderInterface,
     TokenRepository,
 )
-from core.models.user_token import TokenType
-from users.interfaces.interfaces import (
+from src.core.models.user_token import TokenType
+from src.users.interfaces.interfaces import (
     PasswordHasher,
     UserActivationManager,
     UserRepository,

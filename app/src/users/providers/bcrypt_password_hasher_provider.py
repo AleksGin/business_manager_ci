@@ -1,7 +1,7 @@
 import bcrypt
 
-from core.config import settings
-from users.interfaces import PasswordHasher
+from src.core.config import settings
+from src.users.interfaces import PasswordHasher
 
 
 class BcryptPasswordHasherProvider(PasswordHasher):

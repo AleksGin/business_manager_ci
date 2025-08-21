@@ -7,7 +7,7 @@ from typing import (
 )
 from uuid import UUID
 
-from users.models import (
+from src.users.models import (
     RoleEnum,
     User,
 )

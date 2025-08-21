@@ -1,8 +1,8 @@
-"""create tables
+"""Initial commit
 
-Revision ID: 6769a12e6018
+Revision ID: 6880e3c4c2a3
 Revises:
-Create Date: 2025-06-11 13:44:12.525663
+Create Date: 2025-08-21 11:25:39.255078
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "6769a12e6018"
+revision: str = "6880e3c4c2a3"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -85,6 +85,67 @@ def upgrade() -> None:
         sa.UniqueConstraint("uuid"),
     )
     op.create_table(
+        "usertokens",
+        sa.Column("user_uuid", sa.Uuid(), nullable=False),
+        sa.Column("token_hash", sa.String(length=255), nullable=False),
+        sa.Column(
+            "token_type",
+            sa.Enum(
+                "REFRESH",
+                "EMAIL_VERIFICATION",
+                "PASSWORD_RESET",
+                name="tokentype",
+            ),
+            nullable=False,
+        ),
+        sa.Column("expires_at", sa.DateTime(), nullable=False),
+        sa.Column("is_active", sa.Boolean(), nullable=False),
+        sa.Column("ip_address", sa.String(length=45), nullable=True),
+        sa.Column("user_agent", sa.String(length=500), nullable=True),
+        sa.Column("uuid", sa.Uuid(), nullable=False),
+        sa.Column(
+            "created_at",
+            sa.DateTime(),
+            server_default=sa.text("now()"),
+            nullable=False,
+        ),
+        sa.Column(
+            "updated_at",
+            sa.DateTime(),
+            server_default=sa.text("now()"),
+            nullable=False,
+        ),
+        sa.ForeignKeyConstraint(
+            ["user_uuid"], ["users.uuid"], ondelete="CASCADE"
+        ),
+        sa.PrimaryKeyConstraint("uuid"),
+        sa.UniqueConstraint("uuid"),
+    )
+    op.create_index(
+        op.f("ix_usertokens_expires_at"),
+        "usertokens",
+        ["expires_at"],
+        unique=False,
+    )
+    op.create_index(
+        op.f("ix_usertokens_token_hash"),
+        "usertokens",
+        ["token_hash"],
+        unique=True,
+    )
+    op.create_index(
+        op.f("ix_usertokens_token_type"),
+        "usertokens",
+        ["token_type"],
+        unique=False,
+    )
+    op.create_index(
+        op.f("ix_usertokens_user_uuid"),
+        "usertokens",
+        ["user_uuid"],
+        unique=False,
+    )
+    op.create_table(
         "meetings",
         sa.Column("title", sa.String(length=120), nullable=False),
         sa.Column("description", sa.String(length=240), nullable=True),
@@ -126,7 +187,7 @@ def upgrade() -> None:
             nullable=False,
         ),
         sa.Column("assignee_uuid", sa.Uuid(), nullable=True),
-        sa.Column("team_uuid", sa.Uuid(), nullable=False),
+        sa.Column("team_uuid", sa.Uuid(), nullable=True),
         sa.Column("creator_uuid", sa.Uuid(), nullable=False),
         sa.Column("uuid", sa.Uuid(), nullable=False),
         sa.Column(
@@ -149,7 +210,7 @@ def upgrade() -> None:
             ["users.uuid"],
         ),
         sa.ForeignKeyConstraint(
-            ["team_uuid"], ["teams.uuid"], ondelete="CASCADE"
+            ["team_uuid"], ["teams.uuid"], ondelete="SET NULL"
         ),
         sa.PrimaryKeyConstraint("uuid"),
         sa.UniqueConstraint("uuid"),
@@ -221,6 +282,11 @@ def downgrade() -> None:
     op.drop_table("evaluations")
     op.drop_table("tasks")
     op.drop_table("meetings")
+    op.drop_index(op.f("ix_usertokens_user_uuid"), table_name="usertokens")
+    op.drop_index(op.f("ix_usertokens_token_type"), table_name="usertokens")
+    op.drop_index(op.f("ix_usertokens_token_hash"), table_name="usertokens")
+    op.drop_index(op.f("ix_usertokens_expires_at"), table_name="usertokens")
+    op.drop_table("usertokens")
     op.drop_table("teams")
     op.drop_table("users")
     # ### end Alembic commands ###

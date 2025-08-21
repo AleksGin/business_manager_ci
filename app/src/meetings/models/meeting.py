@@ -5,6 +5,8 @@ from typing import (
 )
 from uuid import UUID
 
+from src.core.models.associations import meeting_participants
+from src.core.models.base import Base
 from sqlalchemy import (
     ForeignKey,
     String,
@@ -15,15 +17,14 @@ from sqlalchemy.orm import (
     relationship,
 )
 
-from core.models.associations import meeting_participants
-from core.models.base import Base
-
 if TYPE_CHECKING:
     from teams.models import Team
     from users.models import User
 
 
 class Meeting(Base):
+    __table_args__ = {"extend_existing": True}
+    
     title: Mapped[str] = mapped_column(
         String(120),
         nullable=False,

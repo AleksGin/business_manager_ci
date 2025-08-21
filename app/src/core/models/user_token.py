@@ -15,7 +15,7 @@ from sqlalchemy.orm import (
     relationship,
 )
 
-from core.models.base import Base
+from src.core.models.base import Base
 
 if TYPE_CHECKING:
     from users.models import User
@@ -31,6 +31,8 @@ class TokenType(PyEnum.Enum):
 
 class UserToken(Base):
     """Модель для хранения пользовательских токенов"""
+    
+    __table_args__ = {'extend_existing': True}
 
     user_uuid: Mapped[UUID] = mapped_column(
         ForeignKey("users.uuid", ondelete="CASCADE"),
