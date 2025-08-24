@@ -5,7 +5,7 @@ from typing import (
 )
 from uuid import UUID
 
-from evaluations.models import (
+from src.evaluations.models import (
     Evaluation,
     ScoresEnum,
 )

@@ -5,7 +5,7 @@ from typing import (
 )
 from uuid import UUID
 
-from tasks.models import (
+from src.tasks.models import (
     StatusEnum,
     Task,
 )

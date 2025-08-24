@@ -9,8 +9,8 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY app/src/ ./src/
-COPY app/migrations ./migrations/
+COPY app/ ./
+COPY migrations/ ./
 
 COPY app/src/static/ ./static/
 COPY app/src/index.html ./

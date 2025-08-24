@@ -5,27 +5,27 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
     UUIDGenerator,
 )
-from teams.interfaces import TeamRepository
-from teams.interfaces import (
+from src.teams.interfaces import TeamRepository
+from src.teams.interfaces import (
     TeamMembershipManager,
 )
-from users.interfaces import (
+from src.users.interfaces import (
     PasswordHasher,
     UserActivationManager,
     UserRepository,
     UserValidator,
 )
-from users.models import (
+from src.users.models import (
     GenderEnum,
     RoleEnum,
     User,
 )
-from users.schemas import (
+from src.users.schemas import (
     UserUpdate,
 )
 

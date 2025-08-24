@@ -13,7 +13,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     EvaluationRepoDep,
     SessionDep,
@@ -21,7 +21,7 @@ from core.dependencies import (
     UUIDGeneratorDep,
     UserRepoDep,
 )
-from evaluations.interactors import (
+from src.evaluations.interactors import (
     CreateEvaluationDTO,
     CreateEvaluationInteractor,
     DeleteEvaluationInteractor,
@@ -31,8 +31,8 @@ from evaluations.interactors import (
     QueryEvaluationsInteractor,
     UpdateEvaluationInteractor,
 )
-from evaluations.models import ScoresEnum
-from evaluations.schemas.evaluation import (
+from src.evaluations.models import ScoresEnum
+from src.evaluations.schemas.evaluation import (
     EvaluationCreate,
     EvaluationResponse,
     EvaluationUpdate,

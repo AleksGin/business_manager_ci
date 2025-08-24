@@ -1,5 +1,5 @@
-from core.interfaces.permissions import PermissionValidator
-from core.providers.permission_validator_provider import PermissionValidatorProvider
+from src.core.interfaces.permissions import PermissionValidator
+from src.core.providers.permission_validator_provider import PermissionValidatorProvider
 
 from typing import (
     Annotated,
@@ -18,35 +18,35 @@ from fastapi.security import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.interfaces import (
+from src.core.interfaces import (
     TokenRepository,
     UUIDGenerator,
 )
-from core.models.db_helper import DbHelper
-from core.providers.jwt_provider import jwt_provider
-from core.providers.token_provider import TokenRepositoryProvider
-from core.providers.uuid_generator_provider import UUIDGeneratorProvider
-from evaluations.crud import EvaluationCRUD
-from evaluations.interfaces import EvaluationRepository
-from meetings.crud import MeetingCRUD
-from meetings.interfaces import MeetingRepository
-from tasks.crud import TaskCRUD
-from tasks.interfaces import TaskRepository
-from teams.crud import TeamCRUD
-from teams.interfaces import (
+from src.core.models.db_helper import DbHelper
+from src.core.providers.jwt_provider import jwt_provider
+from src.core.providers.token_provider import TokenRepositoryProvider
+from src.core.providers.uuid_generator_provider import UUIDGeneratorProvider
+from src.evaluations.crud import EvaluationCRUD
+from src.evaluations.interfaces import EvaluationRepository
+from src.meetings.crud import MeetingCRUD
+from src.meetings.interfaces import MeetingRepository
+from src.tasks.crud import TaskCRUD
+from src.tasks.interfaces import TaskRepository
+from src.teams.crud import TeamCRUD
+from src.teams.interfaces import (
     TeamMembershipManager,
     TeamRepository,
 )
-from teams.providers import TeamMembershipManagerProvider
-from users.crud import UserCRUD
-from users.interfaces import (
+from src.teams.providers import TeamMembershipManagerProvider
+from src.users.crud import UserCRUD
+from src.users.interfaces import (
     PasswordHasher,
     UserActivationManager,
     UserRepository,
     UserValidator,
 )
-from users.models import User
-from users.providers import (
+from src.users.models import User
+from src.users.providers import (
     BcryptPasswordHasherProvider,
     UserActivationManagerProvider,
     UserValidatorProvider,

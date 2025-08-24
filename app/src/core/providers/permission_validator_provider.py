@@ -1,13 +1,13 @@
 from typing import TYPE_CHECKING
 
-from core.interfaces.permissions import PermissionValidator
-from users.models import RoleEnum
+from src.core.interfaces.permissions import PermissionValidator
+from src.users.models import RoleEnum
 
 if TYPE_CHECKING:
-    from meetings.models import Meeting
-    from tasks.models import Task
-    from teams.models import Team
-    from users.models import User
+    from src.meetings.models import Meeting
+    from src.tasks.models import Task
+    from src.teams.models import Team
+    from src.users.models import User
 
 
 class PermissionValidatorProvider(PermissionValidator):

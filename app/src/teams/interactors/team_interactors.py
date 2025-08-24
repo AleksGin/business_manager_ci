@@ -4,18 +4,18 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
     UUIDGenerator,
 )
-from teams.interfaces import (
+from src.teams.interfaces import (
     TeamRepository,
 )
-from teams.models import Team
-from teams.schemas.team import TeamUpdate
-from users.interfaces import UserRepository
-from users.models import RoleEnum
+from src.teams.models import Team
+from src.teams.schemas.team import TeamUpdate
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum
 
 
 class CreateTeamDTO:

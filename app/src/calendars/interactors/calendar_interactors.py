@@ -11,9 +11,9 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from meetings.interfaces import MeetingRepository
-from tasks.interfaces import TaskRepository
-from users.interfaces import UserRepository
+from src.meetings.interfaces import MeetingRepository
+from src.tasks.interfaces import TaskRepository
+from src.users.interfaces import UserRepository
 
 
 class GetCalendarMonthInteractor:

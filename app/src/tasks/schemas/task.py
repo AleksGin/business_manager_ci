@@ -8,8 +8,8 @@ from pydantic import (
     Field,
 )
 
-from tasks.models.task import StatusEnum
-from users.schemas import UserInTeam
+from src.tasks.models.task import StatusEnum
+from src.users.schemas import UserInTeam
 
 
 class TaskBase(BaseModel):

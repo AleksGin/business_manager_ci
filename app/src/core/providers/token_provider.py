@@ -5,8 +5,8 @@ from uuid import UUID
 from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.interfaces.auth import TokenRepository
-from core.models.user_token import (
+from src.core.interfaces.auth import TokenRepository
+from src.core.models.user_token import (
     TokenType,
     UserToken,
 )

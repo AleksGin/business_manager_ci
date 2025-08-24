@@ -14,7 +14,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     MeetingRepoDep,
     SessionDep,
@@ -22,7 +22,7 @@ from core.dependencies import (
     UUIDGeneratorDep,
     UserRepoDep,
 )
-from meetings.interactors import (
+from src.meetings.interactors import (
     CreateMeetingDTO,
     CreateMeetingInteractor,
     DeleteMeetingInteractor,
@@ -32,7 +32,7 @@ from meetings.interactors import (
     QueryMeetingsInteractor,
     UpdateMeetingInteractor,
 )
-from meetings.schemas.meeting import (
+from src.meetings.schemas.meeting import (
     MeetingAddParticipants,
     MeetingCreate,
     MeetingRemoveParticipants,

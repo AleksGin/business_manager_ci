@@ -7,19 +7,19 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.config import settings
+from src.core.config import settings
 from src.core.models import DbHelper
-from evaluations.routers import evaluations_router
-from tasks.routers import tasks_router
-from teams.routers import (
+from src.evaluations.routers import evaluations_router
+from src.tasks.routers import tasks_router
+from src.teams.routers import (
     members_router,
     teams_router,
 )
-from users.routers import (
+from src.users.routers import (
     auth_router,
     users_router,
 )
-from meetings.routers import meetings_router
+from src.meetings.routers import meetings_router
 from calendars.routers import calendar_router
 
 BASE_DIR = Path(__file__).resolve().parent.parent

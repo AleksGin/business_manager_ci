@@ -4,22 +4,22 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
     UUIDGenerator,
 )
-from evaluations.interfaces import EvaluationRepository
-from evaluations.models import (
+from src.evaluations.interfaces import EvaluationRepository
+from src.evaluations.models import (
     Evaluation,
     ScoresEnum,
 )
-from evaluations.schemas.evaluation import EvaluationUpdate
-from users.models import User
-from tasks.interfaces import TaskRepository
-from tasks.models import StatusEnum
-from users.interfaces import UserRepository
-from users.models import RoleEnum
+from src.evaluations.schemas.evaluation import EvaluationUpdate
+from src.users.models import User
+from src.tasks.interfaces import TaskRepository
+from src.tasks.models import StatusEnum
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum
 
 
 class CreateEvaluationDTO:

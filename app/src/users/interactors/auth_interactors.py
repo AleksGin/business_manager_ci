@@ -1,17 +1,17 @@
 from typing import Optional
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
 )
-from users.interfaces import (
+from src.users.interfaces import (
     PasswordHasher,
     UserActivationManager,
     UserRepository,
     UserValidator,
 )
-from users.models import User
+from src.users.models import User
 
 
 class ChangePasswordInteractor:

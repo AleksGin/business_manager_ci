@@ -20,11 +20,11 @@ from typing import (
 )
 from uuid import UUID
 
-from meetings.interfaces import MeetingRepository
-from tasks.interfaces import TaskRepository
-from tasks.models import StatusEnum
-from users.interfaces import UserRepository
-from users.models import RoleEnum
+from src.meetings.interfaces import MeetingRepository
+from src.tasks.interfaces import TaskRepository
+from src.tasks.models import StatusEnum
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum
 
 
 class CalendarService:

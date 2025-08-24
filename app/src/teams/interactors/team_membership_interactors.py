@@ -7,16 +7,16 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
 )
-from teams.interfaces import (
+from src.teams.interfaces import (
     TeamRepository,
 )
-from teams.models import Team
-from users.interfaces import UserRepository
-from users.models import RoleEnum, User
+from src.teams.models import Team
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum, User
 
 
 class AddTeamMemberInteractor:

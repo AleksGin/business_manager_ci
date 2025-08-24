@@ -14,9 +14,9 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from evaluations.interfaces import EvaluationRepository
-from evaluations.models import Evaluation, ScoresEnum
-from tasks.models import Task
+from src.evaluations.interfaces import EvaluationRepository
+from src.evaluations.models import Evaluation, ScoresEnum
+from src.tasks.models import Task
 
 
 class EvaluationCRUD(EvaluationRepository):

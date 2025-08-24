@@ -10,7 +10,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     PasswordHasherDep,
     SessionDep,
@@ -21,22 +21,22 @@ from core.dependencies import (
     UUIDGeneratorDep,
     PermissionValidatorDep,
 )
-from core.models.all_models import TokenType
-from core.providers import (
+from src.core.models.all_models import TokenType
+from src.core.providers import (
     jwt_provider,
 )
-from users.interactors.auth_interactors import (
+from src.users.interactors.auth_interactors import (
     AuthenticateUserInteractor,
     ChangePasswordInteractor,
     ConfirmPasswordResetInteractor,
     RequestPasswordResetInteractor,
     VerifyEmailInteractor,
 )
-from users.interactors.user_interactos import (
+from src.users.interactors.user_interactos import (
     CreateUserDTO,
     CreateUserInteractor,
 )
-from users.schemas.user import (
+from src.users.schemas.user import (
     UserChangePassword,
     UserCreate,
     UserLogin,

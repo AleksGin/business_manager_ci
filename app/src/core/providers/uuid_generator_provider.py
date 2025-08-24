@@ -3,7 +3,7 @@ from uuid import (
     uuid4,
 )
 
-from core.interfaces.common import UUIDGenerator
+from src.core.interfaces.common import UUIDGenerator
 
 
 class UUIDGeneratorProvider(UUIDGenerator):

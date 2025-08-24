@@ -6,7 +6,7 @@ __all__ = (
     "UserJoinTeam",
 )
 
-from users.schemas.user import (
+from src.users.schemas.user import (
     UserAssignRole,
     UserCreate,
     UserInTeam,

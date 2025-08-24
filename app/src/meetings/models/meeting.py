@@ -18,8 +18,8 @@ from sqlalchemy.orm import (
 )
 
 if TYPE_CHECKING:
-    from teams.models import Team
-    from users.models import User
+    from src.teams.models import Team
+    from src.users.models import User
 
 
 class Meeting(Base):

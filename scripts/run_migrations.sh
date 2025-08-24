@@ -2,7 +2,7 @@ set -e
 
 
 if [ -z "$(ls -A migrations/versions)" ]; then
-    alembic -c migrations/alembic.ini revision --autogenerate -m "Initial commit"
+    alembic -c alembic.ini revision --autogenerate -m "Initial commit"
 fi
 
-alembic -c migrations/alembic.ini upgrade head
+alembic -c alembic.ini upgrade head

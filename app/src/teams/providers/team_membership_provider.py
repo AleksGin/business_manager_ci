@@ -2,19 +2,19 @@
 
 from uuid import UUID
 
-from core.interfaces import DBSession
-from teams.interfaces import (
+from src.core.interfaces import DBSession
+from src.teams.interfaces import (
     TeamMembershipManager,
     TeamRepository,
 )
-from teams.interactors.team_membership_interactors import (
+from src.teams.interactors.team_membership_interactors import (
     AddTeamMemberInteractor,
     GenerateInviteCodeInteractor,
     JoinTeamByInviteCodeInteractor,
     RemoveTeamMemberInteractor,
     TransferOwnershipInteractor,
 )
-from users.interfaces import UserRepository
+from src.users.interfaces import UserRepository
 
 
 class TeamMembershipManagerProvider(TeamMembershipManager):

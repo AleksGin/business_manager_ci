@@ -12,26 +12,26 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     SessionDep,
     TeamRepoDep,
     UserRepoDep,
 )
-from teams.interactors.team_membership_interactors import (
+from src.teams.interactors.team_membership_interactors import (
     AddTeamMemberInteractor,
     GenerateInviteCodeInteractor,
     GetTeamMembersInteractor,
     RemoveTeamMemberInteractor,
     TransferOwnershipInteractor,
 )
-from teams.schemas.team import (
+from src.teams.schemas.team import (
     TeamInvite,
     TeamRemoveMember,
     TeamTransferOwnership,
     TeamInviteResponse,
 )
-from users.schemas import UserInTeam
+from src.users.schemas import UserInTeam
 
 router = APIRouter()
 

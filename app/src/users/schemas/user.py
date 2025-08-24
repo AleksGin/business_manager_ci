@@ -9,7 +9,7 @@ from pydantic import (
     Field,
 )
 
-from users.models.user import (
+from src.users.models.user import (
     GenderEnum,
     RoleEnum,
 )

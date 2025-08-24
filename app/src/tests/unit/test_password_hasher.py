@@ -1,5 +1,5 @@
 import pytest
-from users.interfaces import PasswordHasher
+from src.users.interfaces import PasswordHasher
 
 
 @pytest.mark.unit

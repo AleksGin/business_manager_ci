@@ -5,17 +5,17 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
     UUIDGenerator,
 )
-from tasks.interfaces import TaskRepository
-from tasks.models import Task, StatusEnum
-from tasks.schemas.task import TaskUpdate
-from teams.interfaces import TeamRepository
-from users.interfaces import UserRepository
-from users.models import RoleEnum
+from src.tasks.interfaces import TaskRepository
+from src.tasks.models import Task, StatusEnum
+from src.tasks.schemas.task import TaskUpdate
+from src.teams.interfaces import TeamRepository
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum
 
 
 class CreateTaskDTO:

@@ -17,8 +17,8 @@ from sqlalchemy.orm import (
 from src.core.models.base import Base
 
 if TYPE_CHECKING:
-    from tasks.models import Task
-    from users.models import User
+    from src.tasks.models import Task
+    from src.users.models import User
 
 
 class ScoresEnum(PyEnum.Enum):

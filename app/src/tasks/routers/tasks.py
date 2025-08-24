@@ -13,7 +13,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     SessionDep,
     TaskRepoDep,
@@ -21,7 +21,7 @@ from core.dependencies import (
     UUIDGeneratorDep,
     UserRepoDep,
 )
-from tasks.interactors import (
+from src.tasks.interactors import (
     AssignTaskInteractor,
     ChangeTaskStatusInteractor,
     CreateTaskDTO,
@@ -32,8 +32,8 @@ from tasks.interactors import (
     QueryTasksInteractor,
     UpdateTaskInteractor,
 )
-from tasks.models import StatusEnum
-from tasks.schemas.task import (
+from src.tasks.models import StatusEnum
+from src.tasks.schemas.task import (
     TaskAssign,
     TaskCreate,
     TaskResponse,

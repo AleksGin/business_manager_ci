@@ -1,8 +1,8 @@
 """Initial commit
 
-Revision ID: 6880e3c4c2a3
+Revision ID: 89c6441fb928
 Revises:
-Create Date: 2025-08-21 11:25:39.255078
+Create Date: 2025-08-24 13:32:13.487195
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "6880e3c4c2a3"
+revision: str = "89c6441fb928"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -41,6 +41,7 @@ def upgrade() -> None:
             sa.Enum("EMPLOYEE", "MANAGER", "ADMIN", name="roleenum"),
             nullable=True,
         ),
+        sa.Column("team_uuid", sa.Uuid(), nullable=True),
         sa.Column("uuid", sa.Uuid(), nullable=False),
         sa.Column(
             "created_at",
@@ -53,6 +54,9 @@ def upgrade() -> None:
             sa.DateTime(),
             server_default=sa.text("now()"),
             nullable=False,
+        ),
+        sa.ForeignKeyConstraint(
+            ["team_uuid"], ["teams.uuid"], ondelete="SET NULL", use_alter=True
         ),
         sa.PrimaryKeyConstraint("uuid"),
         sa.UniqueConstraint("email"),

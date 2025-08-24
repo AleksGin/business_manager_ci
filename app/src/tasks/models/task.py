@@ -20,9 +20,9 @@ from sqlalchemy.orm import (
 from src.core.models.base import Base
 
 if TYPE_CHECKING:
-    from evaluations.models import Evaluation
-    from teams.models import Team
-    from users.models import User
+    from src.evaluations.models import Evaluation
+    from src.teams.models import Team
+    from src.users.models import User
 
 
 class StatusEnum(PyEnum.Enum):

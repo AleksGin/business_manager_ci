@@ -7,8 +7,8 @@ from pydantic import (
     Field,
 )
 
-from evaluations.models.evaluation import ScoresEnum
-from users.schemas import UserInTeam
+from src.evaluations.models.evaluation import ScoresEnum
+from src.users.schemas import UserInTeam
 
 
 class EvaluationBase(BaseModel):

@@ -33,11 +33,11 @@ class GenderEnum(PyEnum.Enum):
 
 
 if TYPE_CHECKING:
-    from evaluations.models import Evaluation
-    from meetings.models import Meeting
-    from tasks.models import Task
-    from teams.models import Team
-    from core.models.all_models import UserToken
+    from src.evaluations.models import Evaluation
+    from src.meetings.models import Meeting
+    from src.tasks.models import Task
+    from src.teams.models import Team
+    from src.core.models.all_models import UserToken
 
 
 class User(Base):
@@ -64,6 +64,7 @@ class User(Base):
         ForeignKey(
             "teams.uuid",
             ondelete="SET NULL",
+            use_alter=True,
         ),
         nullable=True,
     )

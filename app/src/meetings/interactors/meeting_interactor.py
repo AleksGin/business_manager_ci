@@ -8,17 +8,17 @@ from typing import (
 )
 from uuid import UUID
 
-from core.interfaces import (
+from src.core.interfaces import (
     DBSession,
     PermissionValidator,
     UUIDGenerator,
 )
-from meetings.interfaces import MeetingRepository
-from meetings.models import Meeting
-from meetings.schemas.meeting import MeetingUpdate
-from teams.interfaces import TeamRepository
-from users.interfaces import UserRepository
-from users.models import RoleEnum
+from src.meetings.interfaces import MeetingRepository
+from src.meetings.models import Meeting
+from src.meetings.schemas.meeting import MeetingUpdate
+from src.teams.interfaces import TeamRepository
+from src.users.interfaces import UserRepository
+from src.users.models import RoleEnum
 
 
 class CreateMeetingDTO:

@@ -12,7 +12,7 @@ from pydantic import (
     model_validator,
 )
 
-from users.schemas import UserInTeam
+from src.users.schemas import UserInTeam
 
 
 class TeamBase(BaseModel):

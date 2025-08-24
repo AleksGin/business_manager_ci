@@ -20,19 +20,19 @@ from sqlalchemy.ext.asyncio import (
 from sqlalchemy.ext.asyncio.engine import AsyncEngine
 from sqlalchemy.pool import NullPool
 
-from core.config import settings
-from core.dependencies.depends import get_session
-from core.interfaces import UUIDGenerator
-from core.models.base import Base
-from core.providers import UUIDGeneratorProvider
+from src.core.config import settings
+from src.core.dependencies.depends import get_session
+from src.core.interfaces import UUIDGenerator
+from src.core.models.base import Base
+from src.core.providers import UUIDGeneratorProvider
 from main import create_app
-from users.interfaces import PasswordHasher
-from users.models import (
+from src.users.interfaces import PasswordHasher
+from src.users.models import (
     GenderEnum,
     RoleEnum,
     User,
 )
-from users.providers import BcryptPasswordHasherProvider
+from src.users.providers import BcryptPasswordHasherProvider
 
 TEST_DB_URL = settings.test_db_config.url
 

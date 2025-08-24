@@ -12,14 +12,14 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     SessionDep,
     TeamRepoDep,
     UserRepoDep,
     UUIDGeneratorDep,
 )
-from teams.interactors import (
+from src.teams.interactors import (
     CreateTeamDTO,
     CreateTeamInteractor,
     DeleteTeamInteractor,
@@ -27,7 +27,7 @@ from teams.interactors import (
     QueryTeamsInteractor,
     UpdateTeamInteractor,
 )
-from teams.schemas.team import (
+from src.teams.schemas.team import (
     TeamCreate,
     TeamResponse,
     TeamUpdate,

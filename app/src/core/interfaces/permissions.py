@@ -4,10 +4,10 @@ from typing import (
 )
 
 if TYPE_CHECKING:
-    from meetings.models import Meeting
-    from tasks.models import Task
-    from teams.models import Team
-    from users.models import User
+    from src.meetings.models import Meeting
+    from src.tasks.models import Task
+    from src.teams.models import Team
+    from src.users.models import User
 
 
 class PermissionValidator(Protocol):

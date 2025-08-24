@@ -14,8 +14,8 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from tasks.interfaces import TaskRepository
-from tasks.models import (
+from src.tasks.interfaces import TaskRepository
+from src.tasks.models import (
     StatusEnum,
     Task,
 )

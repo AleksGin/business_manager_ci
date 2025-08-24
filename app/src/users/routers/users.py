@@ -13,7 +13,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies.depends import (
+from src.core.dependencies.depends import (
     CurrentUserDep,
     PasswordHasherDep,
     SessionDep,
@@ -25,8 +25,8 @@ from core.dependencies.depends import (
     PermissionValidatorDep,
     TeamRepoDep,
 )
-from users.models import RoleEnum
-from users.interactors.user_interactos import (
+from src.users.models import RoleEnum
+from src.users.interactors.user_interactos import (
     CreateUserDTO,
     CreateUserInteractor,
     DeleteUserInteractor,
@@ -40,8 +40,8 @@ from users.interactors.user_interactos import (
     GetUserStatsInteractor,
     JoinTeamByCodeInteractor,
 )
-from users.interactors.auth_interactors import AdminActivateUserInteractor
-from users.schemas.user import (
+from src.users.interactors.auth_interactors import AdminActivateUserInteractor
+from src.users.schemas.user import (
     UserCreate,
     UserInTeam,
     UserResponse,

@@ -5,7 +5,7 @@ from typing import (
 )
 from uuid import UUID
 
-from teams.models import Team
+from src.teams.models import Team
 
 
 class TeamRepository(Protocol):

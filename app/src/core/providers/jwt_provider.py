@@ -14,8 +14,8 @@ from uuid import UUID
 import jwt
 from jwt import InvalidTokenError
 
-from core.config import settings
-from core.interfaces.auth import JWTProviderInterface
+from src.core.config import settings
+from src.core.interfaces.auth import JWTProviderInterface
 
 
 class JWTProvider(JWTProviderInterface):

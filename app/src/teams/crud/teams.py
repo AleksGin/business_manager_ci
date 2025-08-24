@@ -12,8 +12,8 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from teams.interfaces.interfaces import TeamRepository
-from teams.models import Team
+from src.teams.interfaces.interfaces import TeamRepository
+from src.teams.models import Team
 
 
 class TeamCRUD(TeamRepository):

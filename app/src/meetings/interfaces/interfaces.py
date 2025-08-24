@@ -6,7 +6,7 @@ from typing import (
 )
 from uuid import UUID
 
-from meetings.models import Meeting
+from src.meetings.models import Meeting
 
 
 class MeetingRepository(Protocol):

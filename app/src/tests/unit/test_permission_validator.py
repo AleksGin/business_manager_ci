@@ -2,10 +2,10 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from core.interfaces import PermissionValidator
-from core.providers import PermissionValidatorProvider
-from teams.models import Team
-from users.models import (
+from src.core.interfaces import PermissionValidator
+from src.core.providers import PermissionValidatorProvider
+from src.teams.models import Team
+from src.users.models import (
     RoleEnum,
     User,
 )

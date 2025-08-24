@@ -26,7 +26,7 @@ from fastapi import (
     status,
 )
 
-from core.dependencies import (
+from src.core.dependencies import (
     CurrentUserDep,
     MeetingRepoDep,
     TaskRepoDep,

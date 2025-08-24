@@ -4,12 +4,12 @@ from unittest.mock import AsyncMock
 import pytest
 from freezegun import freeze_time
 
-from core.providers import UUIDGeneratorProvider
-from users.interfaces import (
+from src.core.providers import UUIDGeneratorProvider
+from src.users.interfaces import (
     UserRepository,
     UserValidator,
 )
-from users.providers import UserValidatorProvider
+from src.users.providers import UserValidatorProvider
 
 
 @pytest.mark.unit

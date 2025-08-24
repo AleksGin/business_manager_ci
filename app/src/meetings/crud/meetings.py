@@ -17,10 +17,10 @@ from sqlalchemy import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from core.models.associations import meeting_participants
-from meetings.interfaces import MeetingRepository
-from meetings.models import Meeting
-from users.models import User
+from src.core.models.associations import meeting_participants
+from src.meetings.interfaces import MeetingRepository
+from src.meetings.models import Meeting
+from src.users.models import User
 
 
 class MeetingCRUD(MeetingRepository):

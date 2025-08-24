@@ -11,8 +11,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from users.interfaces import UserRepository
-from users.models import (
+from src.users.interfaces import UserRepository
+from src.users.models import (
     RoleEnum,
     User,
 )

@@ -2,8 +2,8 @@ from uuid import uuid4
 
 import pytest
 
-from core.interfaces import JWTProviderInterface
-from core.providers import JWTProvider
+from src.core.interfaces import JWTProviderInterface
+from src.core.providers import JWTProvider
 
 
 @pytest.mark.unit
